@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <label for="">cuantos numeros</label>
+        <input type="number" name="num">
+
+        
+        <input type="submit" value="enviar" name="enviar">
+    </form>
+    
+    <script>
+        const input = document.querySelector("input[type='submit']");
+        input.addEventListener("click",(e)=>{
+            e.preventDefault();
+            let cant = document.querySelector("input[type='number']").value;
+
+
+            let form = document.querySelector("form");
+            form.innerHTML=``;
+            for (let index = 1; index <= cant; index++) {
+                form.innerHTML+=`
+                    <input type="number">
+                    <select name="" id="" >
+                        <option disabled selected>elija</option>
+                        <option value="suma">suma</option>
+                        <option value="resta">resta</option>
+                        <option value="multiplicacion">multiplicacion</option>
+                        <option value="division">division</option>
+                    </select>
+                `;
+                if (index == cant) {
+                    let selectF = document.querySelector("form>select:last-child");
+                    selectF.style.display="none";
+                    let boton = document.createElement("button");
+                    boton.textContent="enviar";
+                    document.body.append(boton);
+                }
+                
+            }
+            
+            let buton = document.querySelector("button");
+            buton.addEventListener("click", () =>{
+                let todo = document.querySelectorAll("form select,input");
+                
+                for (let index = 0; index < todo.length-1; index++) {
+                    if(index%2 == 0){
+                        // console.log(todo[index].value);
+                    }else{
+                        // console.log(todo[index].value);
+                    }
+
+                    if(index != 0){
+                        if(todo[index].value == "suma" || index == todo.length-1){
+                            valor = valor + parseInt(todo[index+1].value);
+                            console.log(valor);
+                        }else if(todo[index].value == "resta" || index == todo.length-1){
+                            valor = valor - parseInt(todo[index+1].value);
+                            console.log(valor);
+                        }else if(todo[index].value == "multiplicacion" || index == todo.length-1){
+                            valor = valor * parseInt(todo[index+1].value);
+                            console.log(valor);
+                        }else if(todo[index].value == "division" || index == todo.length-1){
+                            valor = valor / parseInt(todo[index+1].value);
+                            console.log(valor);
+                        }
+                    }else{
+                        valor = parseInt(todo[index].value);
+                    }
+                }
+                console.log(valor);
+            })
+
+        })
+    </script>
+</body>
+</html>
+
