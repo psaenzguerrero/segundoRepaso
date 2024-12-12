@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const cont = document.createElement("p");
+        const boton = document.createElement("button");
+
+
+        document.body.append(cont , boton);
+
+        boton.textContent="Mas uno";
+        let sumar =  localStorage.getItem("num") ||1;
+        cont.textContent=sumar;
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            boton.addEventListener("click",()=>{
+                cont.textContent= sumar;
+                localStorage.setItem("num",sumar);
+                sumar++;
+                
+            })
+        })
+
+
+    </script>
+</body>
+</html>

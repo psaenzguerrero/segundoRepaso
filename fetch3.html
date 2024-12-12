@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const form = document.createElement("form");
+        const input = document.createElement("input");
+        const boton = document.createElement("button");
+        boton.textContent="enviar";
+        const ul = document.createElement("ul");
+
+        let array = JSON.parse(localStorage.getItem("array_localstorage")) || [];
+        
+        document.body.append(form,ul);
+
+        input.setAttribute("type","text");
+
+        form.append(input,boton);
+        function cargarDatos() {
+            array.forEach(element => {
+                let li = document.createElement("li");
+                li.textContent=element;
+                ul.append(li);
+            });
+        }
+        document.addEventListener("DOMContentLoaded",()=>{
+            if (array!=[]) {
+                cargarDatos();
+            }
+            boton.addEventListener("click",(e)=>{
+                e.preventDefault();
+                let palabra = input.value.trim().toLocaleLowerCase();
+                let li = document.createElement("li");
+                li.textContent=palabra;
+                if (!palabra=="") {
+                    ul.append(li);
+                    
+                    array.push(palabra);
+                    localStorage.setItem("array_localstorage",JSON.stringify(array));
+                }
+                input.value="";
+            })
+        })
+    </script>
+</body>
+</html>

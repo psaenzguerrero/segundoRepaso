@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+
+    <ul>
+
+    </ul>
+    <script>
+        const url = "https://jsonplaceholder.typicode.com/posts";
+        const ul = document.querySelector("ul");
+        const input = document.querySelector("input");
+
+        let array = [];
+        
+        fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            datos.forEach(dato => {
+                let li = document.createElement("li");
+                li.textContent = dato.title;
+                ul.append(li);
+                array.push(li);
+            });
+            
+        });
+        
+        
+        console.log(array);
+
+        input.addEventListener("input", (e) =>{
+            array.forEach(elemento => {
+                if(!elemento.textContent.includes(e.target.value)){
+                    elemento.style.display = "none";
+                }else{
+                    elemento.style.display = "list-item";
+                }
+            });
+        })
+
+    </script>
+</body>
+</html>
