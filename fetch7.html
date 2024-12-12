@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="">
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Email">
+    </form>
+
+    <script>
+        const form = document.querySelector("form");
+        const input1 = document.querySelector("form > input");
+        const input2 = document.querySelector("form > input:last-child");
+        let nombre = localStorage.getItem("nombre") || null;
+        let email = localStorage.getItem("email") || null;
+
+        input1.value = nombre;
+        input2.value = email;
+
+        document.addEventListener("DOMContentLoaded", () =>{
+            input1.addEventListener("input", (e) =>{
+                nombre = e.target.value.trim().toLowerCase();
+                localStorage.setItem("nombre", nombre);
+            })
+            input2.addEventListener("input", (e) =>{
+                email = e.target.value.trim().toLowerCase();
+                localStorage.setItem("email", email);
+            })
+        })
+    </script>
+</body>
+</html>
