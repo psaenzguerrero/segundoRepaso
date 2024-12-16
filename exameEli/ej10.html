@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input id="buscador" type="text" placeholder="Buscar">
+    <ul id="filterList">
+        <li>Zanahoria</li>
+        <li>Lechuga</li>
+        <li>Tomate</li>
+        <li>Peras</li>
+        <li>MANZANA</li>
+        <li>Platano</li>
+        <li>Cereza</li>
+        <li>Paco</li>
+    </ul>
+    <script>
+        const input = document.querySelector("input");
+        const li = document.querySelectorAll("li");
+
+        input.addEventListener("input", (e) =>{
+            let palabra = e.target.value;
+            console.log(palabra);
+            li.forEach(element => {
+                if(!element.textContent.toLowerCase().trim().includes(palabra)){
+                    element.style.display = "none";
+                }else{
+                    element.style.display = "list-item";
+                }
+            });
+        })
+        
+    </script>
+</body>
+</html>

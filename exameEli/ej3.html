@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array =[
+            {
+                nombre:"PEPE",
+                edad:4
+            },
+            {
+                nombre:"PEPE2",
+                edad:5
+            },
+            {
+                nombre:"PEPE3",
+                edad:6
+            }
+        ]
+        let resultado = array.map((array)=>{
+            return array.nombre;
+        })
+        console.log(resultado);
+
+        let resultado2 = array.filter(persona => persona.edad <=4 );
+
+        console.log(resultado2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const form = document.createElement("form");
+        const nombre = document.createElement("input");
+        const edad = document.createElement("input");
+        const boton = document.createElement("input");
+        boton.type="submit";
+
+
+
+        boton.textContent="ENVIAR";
+        nombre.setAttribute("placeholder","NOMBRE");
+        edad.setAttribute("placeholder","EDAD");
+        document.body.append(form);
+        form.append(nombre,edad,boton);
+
+
+        const tabla = document.createElement("table");
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        const td2 = document.createElement("td");
+        tr.append(td, td2);
+        tabla.append(tr);
+        
+
+
+            
+            boton.addEventListener("click",(e)=>{
+                e.preventDefault();
+                
+                td.textContent=nombre.value;
+                td2.textContent=edad.value;
+                document.body.append(tabla);
+            })
+
+    </script>
+</body>
+</html>

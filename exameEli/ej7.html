@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array =[];
+        let ul = document.createElement("ul");
+        let b1 = document.createElement("button");
+        b1.textContent="agregar";
+        let b2 = document.createElement("button");
+        b2.textContent="eliminar";
+        document.body.append(ul,b1,b2);
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            b1.addEventListener("click",()=>{
+                let li =document.createElement("li");
+                li.textContent="hola";
+                array.push(li);
+                ul.append(li);
+            })
+            b2.addEventListener("click",()=>{
+                let li = document.querySelector("li");
+                li.remove();
+                array.pop();
+                console.log(array);
+            })
+        })
+    </script>
+</body>
+</html>
