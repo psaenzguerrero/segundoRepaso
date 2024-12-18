@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const usuarios = [
+            { nombre: "Carlos", edad: 17, email: "carlos@example.com" },
+            { nombre: "Laura", edad: 21, email: "laura@example.com" },
+            { nombre: "Andrés", edad: 16, email: "andres@example.com" },
+            { nombre: "Marta", edad: 25, email: "marta@example.com" },
+            { nombre: "Sofía", edad: 19, email: "sofia@example.com" },
+        ]
+        usuarios.forEach(element => {
+            if(element.edad>18){
+                console.log(element);
+            }
+        });
+    </script>
+</body>
+</html>

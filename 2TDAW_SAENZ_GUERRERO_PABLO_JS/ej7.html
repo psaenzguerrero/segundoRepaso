@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let url = "https://jsonplaceholder.typicode.com/comments";
+        let ul = document.createElement("ul");
+        
+        document.body.append(ul);
+        fetch(url)
+        .then(respuesta => respuesta.json())
+        .then(datos=>{
+
+            datos.forEach(dato => {
+
+                    let li = document.createElement("li");
+                    let li2 = document.createElement("li");
+                    let li3 = document.createElement("li");
+                    let li4 = document.createElement("li");
+                    let li5 = document.createElement("li");
+
+                    li.textContent=dato.postId;
+                    li2.textContent=dato.id;
+                    li3.textContent=dato.name;
+                    li4.textContent=dato.email;
+                    li5.textContent=dato.body;
+
+                    let elemento = {
+                        li: dato.postId,
+                        li2: dato.id,
+                        li3: dato.name,
+                        li4: dato.email,
+                        li5: dato.body
+                    }
+
+                    ul.append(li,li2,li3,li4,li5);
+
+                    localStorage.setItem("elementos",JSON.stringify(elemento));
+              
+                
+            });
+        })
+    </script>
+</body>
+</html>
